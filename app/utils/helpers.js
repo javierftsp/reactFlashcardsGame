@@ -4,7 +4,7 @@ import { AsyncStorage } from 'react-native'
 import * as Notifications from 'expo-notifications'
 import * as Permissions from 'expo-permissions'
 
-const NOTIFICATION_KEY = 'FlashcardsGame:notifications_test1'
+const NOTIFICATION_KEY = 'FlashcardsGame:Notifications'
 
 export function createUuid() {
   return uuid().split("-").join("");

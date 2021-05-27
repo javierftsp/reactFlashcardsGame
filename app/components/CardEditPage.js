@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {StyleSheet, View, Text, TextInput, TouchableOpacity, Switch, Alert} from 'react-native'
 import {connect} from 'react-redux'
-import {handleAddCard} from '../actions';
+import {handleAddCard, handleAddDeck} from '../actions';
 import {colors} from '../utils/helpers';
 
 class CardEditPage extends Component {
@@ -44,8 +44,9 @@ class CardEditPage extends Component {
       return
     }
 
-    this.props.dispatch(handleAddCard(card, deckId))
-    this.props.navigation.navigate("List")
+    this.props.dispatch(handleAddCard(card, deckId)).then(() => {
+      this.props.navigation.navigate('View', { deckId: deckId })
+    })
 
     this.handleQuestionChange("")
     this.handleAnswerChange("")
